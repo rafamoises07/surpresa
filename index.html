@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para minha princesa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffffff);
+      color: #c94f7c;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .message {
+      margin: 30px auto;
+      max-width: 85%;
+      font-size: 1.2em;
+      line-height: 1.8em;
+      background-color: #fff0f5;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: slideUp 1.5s ease-out;
+    }
+    .gallery, .final-message {
+      display: none;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .gallery {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+    .photo-block {
+      background-color: #f594b4;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 90%;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInPhoto 2s forwards;
+      display: none; /* As fotos começam ocultas */
+    }
+    .photo-block img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+    }
+    .caption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff99c8;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e86ca4;
+    }
+    .final-message {
+      margin-top: 40px;
+      font-size: 1.5em;
+      color: #d63384;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out;
+    }
+    footer {
+      margin: 50px 0;
+      font-size: 0.9em;
+      color: #999;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInPhoto {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 8s infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts">
+    <div class="heart" style="left:10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left:25%; animation-delay: 2s;"></div>
+    <div class="heart" style="left:50%; animation-delay: 4s;"></div>
+    <div class="heart" style="left:75%; animation-delay: 1s;"></div>
+    <div class="heart" style="left:90%; animation-delay: 3s;"></div>
+  </div>
+
+  <h1>Para minha princesa</h1>
+  <div class="message">
+    <p>Oi, meu amor 💖</p>
+    <p>Esse site é só uma forma de te lembrar o quanto você é especial pra mim. Hoje é dia 18 né rs, então fiz essa supresinha só pra te lembrar o quanto eu te amo e sempre vou te amar. Minha vida é você!</p>
+  </div>
+
+  <button onclick="mostrarGaleria()">Clique aqui, meu amor</button>
+
+  <div id="galeria" class="gallery">
+    <p style="font-weight:bold; font-size:1.2em;">Você trouxe cor para minha vida de novo</p>
+    <div class="photo-block">
+      <img src="/foto1.jpg" alt="Foto 1">
+      <div class="caption">Eu queria morar no seu abraço.</div>
+    </div>
+    <div class="photo-block">
+      <img src="/foto2.jpg" alt="Foto 2">
+      <div class="caption">Você é muito mais do que eu já sonhei.</div>
+    </div>
+    <div class="photo-block">
+      <img src="/foto3.jpg" alt="Foto 3">
+      <div class="caption">Tudo ao seu lado é diferente.</div>
+    </div>
+    <div class="photo-block">
+      <img src="/foto4.jpg" alt="Foto 4">
+      <div class="caption">Te amo muito, minha Rapunzel 💖</div>
+    </div>
+    <button onclick="mostrarMensagemFinal()">Clique aqui de novo</button>
+  </div>
+
+  <div id="mensagemFinal" class="final-message">
+    Feliz nosso dia 18 💞
+  </div>
+
+  <footer>
+    Feito com todo amor do mundo por você 💗
+  </footer>
+
+  <script>
+    function mostrarGaleria() {
+      document.getElementById('galeria').style.display = 'flex';
+      const photos = document.querySelectorAll('.photo-block');
+      photos.forEach((photo, index) => {
+        setTimeout(() => {
+          photo.style.display = 'block'; // Mostrar as fotos
+          photo.style.opacity = 1;
+          photo.style.transform = 'translateY(0)';
+        }, index * 500); // Animar uma por uma
+      });
+    }
+
+    function mostrarMensagemFinal() {
+      document.getElementById('mensagemFinal').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
